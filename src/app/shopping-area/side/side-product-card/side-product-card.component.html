@@ -1,0 +1,17 @@
+<ng-container *ngIf="product">
+    <mat-card class="side-product-card">
+        <img mat-card-image src={{imageUrl}} alt={{product.productName}}>
+        <mat-card-header>
+            <mat-card-title>{{product.productName}} x {{cartItem.quantity}}</mat-card-title>
+            <mat-card-subtitle>Total Price: {{cartItem.itemTotalPrice | currency: "ILS"}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-footer>
+            <button mat-button (click)="decrementItemQuantity()">-</button>
+            <button mat-button (click)="incrementItemQuantity()">+</button>
+            <button mat-button (click)="deleteCartItem()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-card-footer>
+    </mat-card>
+</ng-container>

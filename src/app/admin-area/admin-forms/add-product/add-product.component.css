@@ -1,0 +1,23 @@
+.add-product-container {
+    position: relative;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    overflow: auto;
+}
+
+img {
+    width: 100px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.image-button {
+    background-color: white;
+    text-align: left;
+}

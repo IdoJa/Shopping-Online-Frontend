@@ -1,0 +1,13 @@
+.admin-product-card {
+  width: 100%;
+  max-width: 300px;
+  margin: 30px;
+  text-align: center;
+  display: inline-table;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  cursor: pointer;
+}

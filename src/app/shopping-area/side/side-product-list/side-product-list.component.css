@@ -1,0 +1,17 @@
+.order-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%);
+  background: #fff;
+}
+
+.empty-cart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+}

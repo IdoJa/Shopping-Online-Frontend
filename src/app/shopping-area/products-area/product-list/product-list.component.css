@@ -1,0 +1,24 @@
+.product-list {
+    position: relative;
+    left: 150px;
+    bottom: 150px;
+}
+
+.loading {
+    position: absolute;
+    left: 40%;
+    top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.not-found {
+    position: absolute;
+    left: 40%;
+    top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}

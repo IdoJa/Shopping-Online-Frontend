@@ -1,0 +1,42 @@
+
+<ng-container *ngIf="!user">
+    <mat-card-title>Welcome to the Shopping Online Site</mat-card-title>
+    <br>
+    <mat-card-title>Please Log in</mat-card-title>
+    <br>
+</ng-container>
+
+<ng-container *ngIf="user">
+    <mat-card-subtitle>You are logged in</mat-card-subtitle>
+
+    <ng-container *ngIf="user.isAdmin === 1">
+            <mat-card-subtitle>Hello Admin</mat-card-subtitle>
+    </ng-container>
+    
+
+    <ng-container *ngIf="user.isAdmin === 0 && !userCart || userCart?.isFinished === 1">
+        <a routerLink="/shopping">
+            <button mat-stroked-button (click)="addUserCart()">
+                <mat-icon>shopping_cart</mat-icon> Start Shopping
+            </button>
+        </a>
+    </ng-container>
+    <ng-container *ngIf="user.isAdmin === 0 && userCart?.isFinished === 0">
+        <a routerLink="/shopping">
+            <button mat-stroked-button>
+                <mat-icon>restart_alt</mat-icon> Resume Shopping
+            </button>
+        </a>
+    </ng-container>
+
+    <!-- Admin - Manage Products-->
+    <ng-container *ngIf="user.isAdmin === 1">
+        <a routerLink="/admin-shopping">
+            <button mat-stroked-button>
+                <mat-icon>settings</mat-icon> Manage Products
+            </button>
+        </a>
+    </ng-container>
+
+</ng-container>
+

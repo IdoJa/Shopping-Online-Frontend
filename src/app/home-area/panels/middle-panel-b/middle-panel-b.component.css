@@ -1,0 +1,12 @@
+.middle-panel-b {
+  min-width: 500px;
+  min-height: 500px;
+  max-width: 500px;
+  margin: 30px;
+  padding-left: 65px; 
+  text-align: center;
+  display: inline-table;
+  justify-content: center;
+  align-items: center;
+}
+

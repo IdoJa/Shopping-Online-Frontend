@@ -1,0 +1,113 @@
+<div class="container">
+    <mat-horizontal-stepper linear>
+        <mat-step [stepControl]="formGroup1">
+            <ng-template matStepLabel>Step 1</ng-template>
+            <form [formGroup]="formGroup1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Id</mat-label>
+                    <input type="text" name="userId" matInput formControlName="userId" maxlength="9" required>
+                    <mat-error *ngIf="formGroup1.get('userId').invalid && formGroup1.get('userId').errors.required">
+                        Missing Id</mat-error>
+                    <mat-error *ngIf="formGroup1.get('userId').invalid && formGroup1.get('userId').errors.pattern">Id should be 9 digits</mat-error>
+                        <mat-error *ngIf="formGroup1.get('userId').invalid && formGroup1.get('userId').errors.userIdExist">User Id already
+                            exist</mat-error>
+                
+                </mat-form-field>
+                <br>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" name="name" matInput formControlName="email" required>
+                    <mat-error *ngIf="formGroup1.get('email').invalid && formGroup1.get('email').errors.required">
+                        Missing email</mat-error>
+                    <mat-error *ngIf="formGroup1.get('email').invalid && formGroup1.get('email').errors.pattern">Invalid
+                        Email</mat-error>
+                        <mat-error *ngIf="formGroup1.get('email').invalid && formGroup1.get('email').errors.usernameExist">Username already exist</mat-error>
+                
+                </mat-form-field>
+                <br>
+                
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="pass" maxlength="8" required>
+                    <mat-error *ngIf="formGroup1.get('pass').invalid && formGroup1.get('pass').errors.required">Missing
+                        password</mat-error>
+                    <mat-error *ngIf="formGroup1.get('pass').invalid && formGroup1.get('pass').errors.minlength">
+                        Password should be at least 6 digits and characters</mat-error>
+                        <mat-error *ngIf="formGroup1.get('pass').invalid && formGroup1.get('pass').errors.pattern">
+                            Password cannot contain whitespaces</mat-error>
+                </mat-form-field>
+                <br>
+                
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Confirm Password" formControlName="confirmPass" maxlength="8" required>
+                    <mat-error *ngIf="formGroup1.get('confirmPass').invalid && formGroup1.get('confirmPass').errors.required">
+                        Missing confirm password</mat-error>
+                    <mat-error *ngIf="formGroup1.get('confirmPass').invalid && formGroup1.get('confirmPass').errors.mustMatch">
+                        Confirm Password didn't match</mat-error>
+                </mat-form-field>
+                <br>
+
+                <button mat-button matStepperNext>Next</button>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="formGroup2">
+            <ng-template matStepLabel>Step 2</ng-template>
+            <form [formGroup]="formGroup2">
+                <mat-form-field appearance="fill">
+                    <mat-label>City</mat-label>
+                    <mat-select name="shippingCity" formControlName="city" required>
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let c of cities" [value]="c.cityId">
+                            {{c.cityName}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="formGroup2.get('city').invalid && formGroup2.get('city').errors.required">Please choose a city</mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Street</mat-label>
+                    <input type="text" name="street" matInput formControlName="street" minlength="4" maxlength="21" required>
+                    <mat-hint>Example: Gordon 7</mat-hint>
+                    <mat-error *ngIf="formGroup2.get('street').invalid && formGroup2.get('street').errors.required">
+                        Missing street name and building no.</mat-error>
+                    <mat-error *ngIf="formGroup2.get('street').invalid && formGroup2.get('street').errors.minlength">
+                        Minimum name is 4 letters</mat-error>
+                        <mat-error *ngIf="formGroup2.get('street').invalid && formGroup2.get('street').errors.pattern">
+                            Street should contain street name and building no.</mat-error>
+                </mat-form-field>
+                <br><br>
+
+
+
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" name="firstName" matInput formControlName="firstName" maxlength="20" required>
+                    <mat-error *ngIf="formGroup2.get('firstName').invalid && formGroup2.get('firstName').errors.required">
+                        Missing name</mat-error>
+                    <mat-error *ngIf="formGroup2.get('firstName').invalid && formGroup2.get('firstName').errors.minlength">
+                        Minimum name is 3 letters</mat-error>
+                        <mat-error *ngIf="formGroup2.get('firstName').invalid && formGroup2.get('firstName').errors.pattern">
+                            Name should contain letters only</mat-error>
+                </mat-form-field>
+                <br>
+                
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" name="lastName" matInput formControlName="lastName" maxlength="20" required>
+                    <mat-error *ngIf="formGroup2.get('lastName').invalid && formGroup2.get('lastName').errors.required">
+                        Missing name</mat-error>
+                    <mat-error *ngIf="formGroup2.get('lastName').invalid && formGroup2.get('lastName').errors.minlength">
+                        Minimum name is 3 letters</mat-error>
+                        <mat-error *ngIf="formGroup2.get('lastName').invalid && formGroup2.get('lastName').errors.pattern">
+                            Name should contain letters only</mat-error>
+                
+                </mat-form-field>
+                <br>
+
+                <button mat-button matStepperNext (click)="register()">Register</button>
+                <button mat-button matStepperPrevious>Back</button>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

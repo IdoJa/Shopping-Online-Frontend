@@ -1,0 +1,53 @@
+<div class="order-container">
+    <form (submit)="order()" #orderFormInfo="ngForm">
+        <!-- Fields-->
+        <!-- City Selection-->
+        <mat-form-field (dblclick)="setDefaults(orderFormInfo)" appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select name="shippingCity" [(ngModel)]="userOrder.shippingCity" #shippingCityInfo="ngModel" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let c of cities" [value]="c.cityName">
+                    {{c.cityName}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="shippingCityInfo.errors?.required">Please choose a city</mat-error>
+        </mat-form-field>
+        <br>
+    
+        <mat-form-field (dblclick)="setDefaults(orderFormInfo)" appearance="outline">
+            <mat-label>Street</mat-label>
+            <input matInput type="text" name="shippingStreet" minlength="4" pattern="^(([A-Za-z]){2,10}((\ )|(-))?([A-Za-z]){2,10}) ([1-9])(\d){0,3}$" maxlength="21" [(ngModel)]="userOrder.shippingStreet" #shippingStreetInfo="ngModel" required />
+            <mat-hint>We remember you!<br> double click on the street</mat-hint>
+            <mat-error *ngIf="shippingStreetInfo.errors?.required && shippingStreetInfo.touched">Missing street</mat-error>
+            <mat-error *ngIf="shippingStreetInfo.errors?.minlength && shippingStreetInfo.touched">Minimum name is 4 letters</mat-error>
+            <mat-error *ngIf="shippingStreetInfo.errors?.pattern && shippingStreetInfo.touched">Street should contain street name and building no.</mat-error>
+        </mat-form-field>
+        <br><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a shipping date</mat-label>
+            <input matInput  [matDatepickerFilter]="filterOrderShippingDates" [matDatepicker]="picker" name="shippingDate" [min]="todayDate" [max]="toDate" [(ngModel)]="userOrder.shippingDate" #shippingDateInfo="ngModel" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="shippingDateInfo.errors?.required && shippingDateInfo.touched">Please choose a date</mat-error>
+        </mat-form-field>
+        <br>
+    
+        <h2>Payments:</h2>
+        <h3>Payout: {{orderPayout | currency: "ILS"}}</h3>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Credit Card</mat-label>
+            <input matInput type="text" name="lastCreditDigits" pattern="^4[0-9]{12}(?:[0-9]{3})?$" [(ngModel)]="userOrder.lastCreditDigits" maxlength="16" #lastCreditDigitsInfo="ngModel" required />
+            <mat-hint>We accept visa credit card</mat-hint>
+            <mat-error *ngIf="lastCreditDigitsInfo.errors?.required">Missing credit card</mat-error>
+            <mat-error *ngIf="lastCreditDigitsInfo.errors?.pattern">Visa Credit Card invalid </mat-error>
+        </mat-form-field>
+        <br>
+    
+        <button mat-stroked-button>
+            <mat-icon>redeem</mat-icon> Order
+        </button>
+    </form>
+</div>
+

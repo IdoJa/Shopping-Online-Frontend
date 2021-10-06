@@ -1,0 +1,22 @@
+<app-category-navbar></app-category-navbar>
+
+<!-- Drawer -->
+<mat-drawer-container class="example-container">
+   
+    <nav>
+        <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon class="cart-icon">shopping_cart</mat-icon>
+        </button>
+    </nav>
+    <button mat-button></button>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <app-side-product-list></app-side-product-list>
+
+    </mat-drawer>
+    
+    <div class="example-sidenav-content">
+    
+
+    </div>
+    <app-product-list></app-product-list>
+</mat-drawer-container>

@@ -1,0 +1,20 @@
+<h1 class="mat-dialog-title">Delete All Items</h1>
+<div class="mat-dialog-content">
+    <ng-container *ngIf="isCartEmpty">
+        <h3>There is nothing to delete right now.</h3>
+    </ng-container>
+    <ng-container *ngIf="!isCartEmpty">
+        <h3>Are you sure you want to delete all cart items?</h3>
+    </ng-container>
+</div>
+
+<div class="mat-dialog-actions">
+    <ng-container *ngIf="isCartEmpty">
+        <button class="mat-button mat-dialog-close" (click)="closeDialog()">Close</button>
+    </ng-container>
+
+    <ng-container *ngIf="!isCartEmpty">
+        <button mat-button (click)="deleteAllItems()">Yes</button>
+        <button mat-button (click)="closeDialog()">No</button>
+    </ng-container>
+</div>

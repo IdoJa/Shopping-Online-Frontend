@@ -1,0 +1,9 @@
+<ng-container *ngIf="selectedProductDetails">
+    <mat-card class="side-product-preview-card">
+        <img mat-card-image src={{imageUrl}} alt={{selectedProductDetails.productName}}>
+        <mat-card-header>
+            <mat-card-title>{{selectedProductDetails.productName}}</mat-card-title>
+            <mat-card-subtitle>Total Price: {{selectedProductDetails.productPrice | currency: "ILS"}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+</ng-container>

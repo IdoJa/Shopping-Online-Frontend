@@ -1,0 +1,17 @@
+<app-category-navbar></app-category-navbar>
+
+<!-- Drawer -->
+<mat-drawer-container class="example-container">
+
+    <nav>
+        <button type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon class="settings-icon">settings</mat-icon>
+        </button>
+    </nav>
+    <button mat-button></button>
+    <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+        <app-side-content></app-side-content>
+    </mat-drawer>
+    <div class="example-sidenav-content"></div>
+    <app-admin-product-list></app-admin-product-list>
+</mat-drawer-container>

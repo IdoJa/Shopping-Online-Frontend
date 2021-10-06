@@ -1,0 +1,13 @@
+.page404-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 220px;
+	text-align: center;
+    font-size: x-large;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    overflow: auto;
+}

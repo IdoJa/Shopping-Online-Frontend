@@ -1,0 +1,51 @@
+<div class="add-product-container">
+    <h3>Add Product</h3>
+    <br>
+    <form (submit)="addProduct(addProductFormInfo)" #addProductFormInfo="ngForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Category</mat-label>
+            <mat-select name="categoryId" [(ngModel)]="newProduct.categoryId" #categoryIdInfo="ngModel" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let c of categories" [value]="c.categoryId">
+                    {{c.categoryName}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="categoryIdInfo.errors?.required">Please choose a category</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput type="text" name="productName" minlength="3" maxlength="30" [(ngModel)]="newProduct.productName"
+                #productNameInfo="ngModel" required />
+            <mat-error *ngIf="productNameInfo.errors?.required">Missing Product Name</mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Product Price</mat-label>
+            <input matInput type="number" name="productPrice" min="0.05" max="500" step="0.05" [(ngModel)]="newProduct.productPrice"
+                #productPriceInfo="ngModel" required />
+            <mat-error *ngIf="productPriceInfo.errors?.required">Missing Product Price</mat-error>
+        </mat-form-field>
+        <br>
+
+        <input #newProductImage type="file" accept="image/*" name="image" (change)="handleImage($event)">
+        <button mat-stroked-button type="button" (click)="newProductImage.click()">Select image</button>
+        <br><br>
+
+        <ng-container *ngIf="preview">
+            <img [src]="preview">
+            <br><br>
+        </ng-container>
+
+        <button mat-stroked-button>
+            <mat-icon>add_circle</mat-icon> Add
+        </button>
+
+        <button type="button" (click)="clearForm(addProductFormInfo)" mat-stroked-button>
+            <mat-icon>clear_all</mat-icon> Clear
+        </button>
+
+    </form>
+</div>

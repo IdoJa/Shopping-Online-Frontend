@@ -1,0 +1,16 @@
+<div class="navbar">
+    <ul>
+        <li>
+            <mat-placeholder class="custom-placeholder">
+                <mat-icon>search</mat-icon>
+            </mat-placeholder>
+        </li>
+        <li>
+            <input appSearch type="text" name="text" placeholder="search" (keyup)="searchedProduct($event)" required />
+        </li>
+
+        <li (click)="selectAll()"><a>All</a></li>
+
+        <li *ngFor="let c of categories" (click)="selectedCategory(c.categoryId)"><a>{{c.categoryName}}</a></li>
+    </ul>
+</div>

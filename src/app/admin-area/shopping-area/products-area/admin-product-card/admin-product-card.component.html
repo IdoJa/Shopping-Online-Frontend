@@ -1,0 +1,14 @@
+<mat-card class="admin-product-card">
+    <img mat-card-image src={{imageUrl}} alt={{product.productName}} (click)="getProductId(product.productId)">
+    <mat-card-content>
+        <h4>
+            {{product.productName}}
+        </h4>
+        <br>
+        <h4>
+            {{product.productPrice | currency: "ILS"}}
+        </h4>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+</mat-card>

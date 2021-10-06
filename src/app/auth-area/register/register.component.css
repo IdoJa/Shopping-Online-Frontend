@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+    top: 10vh;
+}
+
+.mat-stepper-horizontal {
+    position: relative;
+    left: 25%;
+    max-width: 50%;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+

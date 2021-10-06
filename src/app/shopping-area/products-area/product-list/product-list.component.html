@@ -1,0 +1,22 @@
+<ng-container>
+    <div class="product-list" *ngIf="!selectedCategory && !searchedProduct">
+        <ng-container *ngIf="!products">
+            <div class="loading">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-container>
+        <app-product-card *ngFor="let p of products" [product]="p"></app-product-card>
+    </div>
+    <div class="product-list" *ngIf="selectedCategory || searchedProduct">
+        <ng-container *ngIf="filteredProducts?.length === 0">
+            <div class="not-found">
+                <h3>No products founded.</h3>
+                <br>
+
+                <h3>Looking for something else?</h3> 
+            </div>
+        </ng-container>
+        <app-product-card *ngFor="let p of filteredProducts" [product]="p"></app-product-card>
+    </div>
+</ng-container>
+

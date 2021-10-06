@@ -1,0 +1,29 @@
+img {
+    float: left;
+    max-width: 320px;
+    max-height: 320px;
+}
+
+/* Adding more properties to material-ui existing css */
+.mat-dialog-actions {
+    padding: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 52px;
+    align-items: center;
+    box-sizing: content-box;
+    margin-bottom: -24px;
+    justify-content: center;
+}
+
+.mat-dialog-content {
+    display: flex;
+    justify-content: center;
+    margin: 0 -24px;
+    padding: 0 24px;
+    max-height: 65vh;
+    font: 500 20px/32px Roboto,Helvetica Neue,sans-serif;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+

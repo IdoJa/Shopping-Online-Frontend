@@ -1,0 +1,18 @@
+<div class="side-content-menu-container">
+    <button mat-button (click)="applyAddProductDisplay()">
+        <mat-icon>add</mat-icon> Add Product
+    </button>
+    <button mat-button (click)="applyEditProductDisplay()">
+        <mat-icon>edit</mat-icon> Edit Product
+    </button>
+</div>
+
+<ng-container *ngIf="displayAddProduct">
+    <app-add-product></app-add-product>
+</ng-container>
+
+
+<ng-container *ngIf="displayEditProduct === true && selectedProductDetails">
+    <app-side-product-preview-card [selectedProductDetails]="selectedProductDetails"></app-side-product-preview-card>
+    <app-edit-product [selectedProductDetails]="selectedProductDetails"></app-edit-product>
+</ng-container>

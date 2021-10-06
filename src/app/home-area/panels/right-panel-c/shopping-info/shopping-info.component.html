@@ -1,0 +1,36 @@
+<mat-card-title>Available Products in our store {{productsCounter}}</mat-card-title>
+<br>
+
+<mat-card-title>Number of orders submitted in our store {{ordersCounter}}</mat-card-title>
+<br>
+
+<div *ngIf="user && userCart && user?.isAdmin === 0">
+    <!-- User With Cart Messages-->
+    <h2>Hello {{user.firstName}}</h2>
+    <br>
+    <div *ngIf="userCart.isFinished === 0">
+        <h2>There is still an open cart from {{userCart.creationDate | date: 'dd/MM/yyyy'}}</h2>
+        <br>
+        <h2>Total price in the cart: {{currentTotalPrice | currency: 'ILS'}}</h2>
+        <br>
+        <h2>Total quantity in the cart: {{currentTotalQuantity}}</h2>
+    </div>
+    <!-- User with order-->
+    <div *ngIf="lastOrder && userCart.isFinished === 1">
+        <h2>Your last order was on {{lastOrder.orderDate | date: 'dd/MM/yyyy'}}</h2>
+        <br>
+        <h2>Total price on the order {{lastOrder.orderPayout | currency: 'ILS'}}</h2>
+    </div>
+</div>
+
+<!-- User without cart-->
+<div *ngIf="user && user?.isAdmin === 0 && !userCart">
+    <h2>Hello {{user.firstName}}</h2>
+    <h2>You can start shopping now</h2>
+</div>
+
+<!-- Admin Messages-->
+<div *ngIf="user?.isAdmin === 1">
+    <h2>Hello {{user.firstName}}</h2>
+    <h2>You are the admin</h2>
+</div>

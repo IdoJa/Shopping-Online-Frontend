@@ -1,0 +1,9 @@
+<ng-container *ngIf="product">
+    <mat-card class="order-product-card">
+        <img mat-card-image src={{imageUrl}} alt={{product.productName}}>
+        <mat-card-header>
+            <mat-card-title [ngClass]="applyMarkings()">{{product.productName}} x {{cartItem.quantity}}</mat-card-title>
+            <mat-card-subtitle>Total Price: {{cartItem.itemTotalPrice | currency: "ILS"}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+</ng-container>

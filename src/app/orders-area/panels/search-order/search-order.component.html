@@ -1,0 +1,19 @@
+<ng-container>
+    <div class="search-order-header">
+        <mat-placeholder class="custom-placeholder">
+            <mat-icon>search</mat-icon>
+        </mat-placeholder>
+        <input type="text" name="text" placeholder="search" (keyup)="searchedOrder($event)" />
+    
+        <a routerLink="/shopping">
+            <button mat-button>
+                <mat-icon>undo</mat-icon>Back to list
+            </button>
+        </a>
+    </div>
+    
+    <div class="product-list-container">
+        <app-order-product-list></app-order-product-list>
+    </div>
+
+</ng-container>

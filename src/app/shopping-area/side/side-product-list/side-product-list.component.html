@@ -1,0 +1,23 @@
+<ng-container>
+    <ng-container *ngIf="cartItems?.length === 0">
+        <div class="empty-cart">
+            <h3>Cart is empty</h3>
+        </div>
+    </ng-container>
+
+    <app-side-product-card *ngFor="let i of cartItems" [cartItem]="i"></app-side-product-card>
+    <div class="order-container">
+            <button mat-button (click)="checkItemsExistence()">
+                <mat-icon>shop</mat-icon>Order Now
+            </button>
+        <button mat-button (click)="openDeleteAllDialog()">
+            <mat-icon>delete_sweep</mat-icon>Delete All
+        </button>
+        <h3>
+            Total Price: {{cartTotalPrice | currency: 'ILS'}}
+        </h3>
+        <h3>
+            Total Quantity: {{cartTotalQuantity}}
+        </h3>
+    </div>
+</ng-container>

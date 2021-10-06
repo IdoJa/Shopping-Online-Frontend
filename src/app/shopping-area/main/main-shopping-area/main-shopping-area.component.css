@@ -1,0 +1,25 @@
+.example-container {
+  position: relative;
+  top: 50px;
+  height: 1000px; 
+  background: inherit;
+  text-align: left; 
+}
+
+.example-sidenav-content {
+  display: inline-block; 
+  height: 10%; 
+  align-items: left; 
+  justify-content: left; 
+}
+
+.example-sidenav {
+  padding: 20px;
+  width: 27%;
+}
+
+.cart-icon {
+  height: 48px;
+  width: 48px; 
+  font-size: 48px; 
+}

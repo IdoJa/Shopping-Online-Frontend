@@ -1,0 +1,19 @@
+<mat-card class="left-panel-a">
+    <mat-card-header>
+        <!-- Shopping Status -->
+        <ng-container *ngIf="!user">
+            <app-shopping-status></app-shopping-status>
+        </ng-container>
+        <ng-container *ngIf="user">
+            <app-shopping-status [user]="user"></app-shopping-status>
+        </ng-container>
+    </mat-card-header>
+   
+    <mat-card-content>
+        <!-- Login Form -->
+        <ng-container *ngIf="!user">
+            <mat-card-title>Login</mat-card-title>
+            <app-login></app-login>
+        </ng-container>
+    </mat-card-content>
+</mat-card>

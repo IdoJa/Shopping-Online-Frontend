@@ -1,0 +1,14 @@
+<h1 class="mat-dialog-title">{{product.productName}}</h1>
+<div class="mat-dialog-content">
+    <img src={{imageUrl}} alt={{product.productName}}>
+</div>
+
+<div class="mat-dialog-actions">
+    <button class="mat-button mat-dialog-close" (click)="closeDialog()">Close</button>
+    <button mat-button (click)="decrementItemQuantity()">-</button>
+    <h3>{{newCartItem.quantity}}</h3>
+    <button mat-button (click)="incrementItemQuantity()">+</button>
+    <h3>{{newCartItem.itemTotalPrice | currency: "ILS"}}</h3>
+    <button mat-button *ngIf="selectedItemExist" (click)="updateCartItem()">Update</button>
+    <button mat-button *ngIf="!selectedItemExist" (click)="addNewCartItem()">Add</button>
+</div>

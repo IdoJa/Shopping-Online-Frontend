@@ -1,0 +1,10 @@
+<div class="menu-area nav">
+    <div class="logo">
+        <h1 class="menu-title">Shopping Online</h1>
+    </div>
+    <ul>
+        <li><a routerLink="/home">Home</a></li>
+        <li *ngIf="user"><a routerLink="/home" (click)="applyLogout()">Logout</a></li>
+        <li><a routerLink="/register">Register</a></li>
+    </ul>
+</div>
